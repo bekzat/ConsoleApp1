@@ -35,9 +35,9 @@ namespace ConsoleApp1
             return d;
         }
         static void Main(string[] args)
-        {
+        {            
             int result = Sum(3, 5);
-            Console.WriteLine(result);
+            Console.WriteLine($"Result= {result}");
         }
     }
 }
