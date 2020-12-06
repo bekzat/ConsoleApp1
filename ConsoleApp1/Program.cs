@@ -11,24 +11,28 @@ namespace ConsoleApp1
     /// </summary>
     class Program
     {
-        static void Resize(ref int[] array, int newSize)
+        static void print(int[] array)
         {
-            int[] newArray = new int[newSize];
-            for (int i = 0; i < array.Length && i<newArray.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                newArray[i] = array[i];
+                Console.WriteLine(array[i]);
+            }
+        }
+        static void addItem(ref int[] array, int item)
+        {
+            int[] newArray = new int[array.Length + 1];
+            newArray[0] = item;
+            for (int i = 1; i < newArray.Length; i++)
+            {
+                newArray[i] = array[i-1];
             }
             array = newArray;
         }
-        
         static void Main(string[] args)
         {
-            int[] myArray = { 1, 2, 3 };
-            Resize(ref myArray, 10);
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                Console.WriteLine(myArray[i]);
-            }
+            int[] myArray = { 2, 3, 4 };
+            addItem(ref myArray, 5);
+            print(myArray);
         }
     }
 }
