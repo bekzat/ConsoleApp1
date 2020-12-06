@@ -20,6 +20,7 @@ namespace ConsoleApp1
             }
             array = newArray;
         }
+        
         static void Main(string[] args)
         {
             int[] myArray = { 1, 2, 3 };
