@@ -42,7 +42,7 @@ namespace ConsoleApp2
             }
             if (num == 0)
             {
-                Console.WriteLine(summa);
+                Console.WriteLine("Сумма цифр числа = " + summa);
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace ConsoleApp2
             int[] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 100 };
             print(myArray);
             Sum(myArray);
-            Console.WriteLine();
+            Console.Write("\nВведите число: ");
             int num = int.Parse(Console.ReadLine());
             numSum(num);
             Console.WriteLine();
