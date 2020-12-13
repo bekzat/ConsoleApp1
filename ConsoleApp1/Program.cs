@@ -11,6 +11,22 @@ namespace ConsoleApp1
     /// </summary>
     class Program
     {
+        //Добавить элемент на начало массива
+        static void insert(ref int[] array, int value, int index)
+        {
+            int[] newArray = new int[array.Length + 1];
+            
+            for (int i = 0, j=0; i < newArray.Length && j<array.Length; i++, j++)
+            {
+                if(i==index)
+                {
+                    newArray[index] = value;
+                    i++;
+                }
+                newArray[i] = array[j];
+            }
+            array = newArray;
+        }
         static void print(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
@@ -18,20 +34,10 @@ namespace ConsoleApp1
                 Console.WriteLine(array[i]);
             }
         }
-        static void addItem(ref int[] array, int item)
-        {
-            int[] newArray = new int[array.Length + 1];
-            newArray[0] = item;
-            for (int i = 1; i < newArray.Length; i++)
-            {
-                newArray[i] = array[i-1];
-            }
-            array = newArray;
-        }
         static void Main(string[] args)
         {
-            int[] myArray = { 2, 3, 4 };
-            addItem(ref myArray, 5);
+            int[] myArray = { 3, 5, 9, 6, 2, 4 };
+            insert(ref myArray, 314, 3);
             print(myArray);
         }
     }
