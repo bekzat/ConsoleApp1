@@ -16,10 +16,23 @@ namespace ConsoleApp2
             i++;
             print(array, i);
         }
+        static void Sum(int[] array, int i=0, int sumArray = 0)
+        {
+            if (i >= array.Length)
+            {
+                Console.WriteLine("\nСумма массива = " + sumArray);
+                return;
+            }
+            sumArray += array[i];
+            i++;
+            Sum(array, i, sumArray);
+        }
         static void Main(string[] args)
         {
-            int[] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 100 };
             print(myArray);
+            Sum(myArray);
+
             Console.WriteLine();
         }
     }
