@@ -21,7 +21,7 @@ namespace ConsoleApp1
             }
         }
 
-        static int Sum(int a, int b, bool enableLogging=true)
+        static int Sum(int a, int b, bool enableLogging=false)
         {
             int result = a + b;
             if(enableLogging)
@@ -35,7 +35,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Foo("test", 5, 'q', 5.49f, true);
-            int result = Sum(3, 4);
+            int result = Sum(b: 3, a: 4, enableLogging: true);
         }
     }
 }
