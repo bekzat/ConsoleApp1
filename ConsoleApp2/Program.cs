@@ -27,12 +27,35 @@ namespace ConsoleApp2
             i++;
             Sum(array, i, sumArray);
         }
+        static void numSum(int num, int summa=0, int count=1000000)
+        {
+            int value = num / count;
+            if(value<0)
+            {
+                count /= 10;
+            }else
+            {
+                summa += value;
+                value *= count;
+                num -= value;
+                count /= 10;
+            }
+            if (num == 0)
+            {
+                Console.WriteLine(summa);
+                return;
+            }
+
+            numSum(num, summa, count);
+        }
         static void Main(string[] args)
         {
             int[] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 100 };
             print(myArray);
             Sum(myArray);
-
+            Console.WriteLine();
+            int num = int.Parse(Console.ReadLine());
+            numSum(num);
             Console.WriteLine();
         }
     }
