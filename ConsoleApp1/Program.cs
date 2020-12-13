@@ -16,17 +16,32 @@ namespace ConsoleApp1
         {
             int[] newArray = new int[array.Length + 1];
             
-            for (int i = 0, j=0; i < newArray.Length && j<array.Length; i++, j++)
+            for (int i = 0, j=0; i < newArray.Length; i++, j++)
             {
                 if(i==index)
                 {
                     newArray[index] = value;
-                    i++;
+                    j--;
+                    
+                } else
+                {
+                    newArray[i] = array[j];
                 }
-                newArray[i] = array[j];
+                
             }
             array = newArray;
         }
+
+        static void addFirst(ref int[] array, int value)
+        {
+            insert(ref array, value, 0);
+        }
+
+        static void addLast(ref int[] array, int value)
+        {
+            insert(ref array, value, array.Length);
+        }
+
         static void print(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
@@ -37,7 +52,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             int[] myArray = { 3, 5, 9, 6, 2, 4 };
-            insert(ref myArray, 314, 3);
+            insert(ref myArray, 314, 4);
             print(myArray);
         }
     }
