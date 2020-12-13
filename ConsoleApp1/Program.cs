@@ -10,50 +10,19 @@ namespace ConsoleApp1
     /// Test
     /// </summary>
     class Program
-    {
-        //Добавить элемент на начало массива
-        static void insert(ref int[] array, int value, int index)
+    {   
+        static void Foo(params object[] parameters)
         {
-            int[] newArray = new int[array.Length + 1];
-            
-            for (int i = 0, j=0; i < newArray.Length; i++, j++)
+            string message = "Типы данных {0}, значение {1}";
+
+            foreach (var item in parameters)
             {
-                if(i==index)
-                {
-                    newArray[index] = value;
-                    j--;
-                    
-                } else
-                {
-                    newArray[i] = array[j];
-                }
-                
-            }
-            array = newArray;
-        }
-
-        static void addFirst(ref int[] array, int value)
-        {
-            insert(ref array, value, 0);
-        }
-
-        static void addLast(ref int[] array, int value)
-        {
-            insert(ref array, value, array.Length);
-        }
-
-        static void print(int[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.WriteLine(array[i]);
+                Console.WriteLine(message, item.GetType(), item);
             }
         }
         static void Main(string[] args)
         {
-            int[] myArray = { 3, 5, 9, 6, 2, 4 };
-            insert(ref myArray, 314, 4);
-            print(myArray);
+            Foo("test", 5, 'q', 5.49f, true);
         }
     }
 }
