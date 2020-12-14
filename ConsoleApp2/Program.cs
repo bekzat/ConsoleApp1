@@ -16,16 +16,12 @@ namespace ConsoleApp2
             i++;
             print(array, i);
         }
-        static void Sum(int[] array, int i=0, int sumArray = 0)
+        static int Sum(int[] array, int i=0)
         {
             if (i >= array.Length)
-            {
-                Console.WriteLine("\nСумма массива = " + sumArray);
-                return;
-            }
-            sumArray += array[i];
-            i++;
-            Sum(array, i, sumArray);
+                return 0;
+
+            return array[i] + Sum(array, i + 1);
         }
         static void numSum(int num, int summa=0, int count=1000000)
         {
@@ -52,7 +48,8 @@ namespace ConsoleApp2
         {
             int[] myArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 100 };
             print(myArray);
-            Sum(myArray);
+            int result = Sum(myArray);
+            Console.WriteLine("\nСумма массива = "+result);
             Console.Write("\nВведите число: ");
             int num = int.Parse(Console.ReadLine());
             numSum(num);
